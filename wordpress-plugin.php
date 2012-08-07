@@ -170,7 +170,7 @@ function wpv_purge_urls( array $urls ){
             foreach( $urls as $url => $bool ){
                 try {
                     $expr = sprintf('req.url ~ "%s"', $url );
-                    if( $hostpattern ){
+                    if( $hostpattern && $hostpattern != "."){
                         $expr .= sprintf(' && req.http.host ~ "%s"', $hostpattern );
                     }
                     $Sock->purge( $expr );
