@@ -238,6 +238,9 @@ function wpv_edit_post_action( $postid, $comment = false ){
             }
         }
     }
+
+    // Clear in-house ads
+    $wpv_to_purge['ad-inhouse.php'] = true;
 }
 
 
