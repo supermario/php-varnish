@@ -283,6 +283,7 @@ if( get_option('wpv_enabled') ){
     add_action( 'deleted_post',      'wpv_edit_post_action',    99, 1 );
     add_action( 'comment_post',      'wpv_edit_comment_action', 99, 1 );
     add_action( 'edit_comment',      'wpv_edit_comment_action', 99, 1 );
+    add_action( 'wp_set_comment_status','wpv_edit_comment_action', 99, 1 );
     add_action( 'trashed_comment',   'wpv_edit_comment_action', 99, 1 );
     add_action( 'untrashed_comment', 'wpv_edit_comment_action', 99, 1 );
     add_action( 'deleted_comment',   'wpv_edit_comment_action', 99, 1 );
