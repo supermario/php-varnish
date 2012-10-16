@@ -209,6 +209,10 @@ function wpv_edit_post_action( $postid, $comment = false ){
 
     // only purge feed and taxonomies when it is not a comment
     if( $comment ){
+
+        // Purge comment count AJAX hook for this post
+        $wpv_to_purge['^/wp-content/themes/theme-technetwork/ext/json/get_data.php?action=comment_count&post_id='.$postid];
+
         return;
     }
     // always purge all feeds
