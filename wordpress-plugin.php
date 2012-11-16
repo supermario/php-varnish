@@ -288,12 +288,20 @@ if( get_option('wpv_enabled') ){
     add_action( 'publish_page',      'wpv_edit_post_action',    99, 1 );
     add_action( 'publish_post',      'wpv_edit_post_action',    99, 1 );
     add_action( 'deleted_post',      'wpv_edit_post_action',    99, 1 );
-    add_action( 'comment_post',      'wpv_edit_comment_action', 99, 1 );
-    add_action( 'edit_comment',      'wpv_edit_comment_action', 99, 1 );
-    add_action( 'wp_set_comment_status','wpv_edit_comment_action', 99, 1 );
-    add_action( 'trashed_comment',   'wpv_edit_comment_action', 99, 1 );
-    add_action( 'untrashed_comment', 'wpv_edit_comment_action', 99, 1 );
-    add_action( 'deleted_comment',   'wpv_edit_comment_action', 99, 1 );
+
+    // Original wordpress comment hooks
+    // add_action( 'comment_post',      'wpv_edit_comment_action', 99, 1 );
+    // add_action( 'edit_comment',      'wpv_edit_comment_action', 99, 1 );
+    // add_action( 'wp_set_comment_status','wpv_edit_comment_action', 99, 1 );
+    // add_action( 'trashed_comment',   'wpv_edit_comment_action', 99, 1 );
+    // add_action( 'untrashed_comment', 'wpv_edit_comment_action', 99, 1 );
+    // add_action( 'deleted_comment',   'wpv_edit_comment_action', 99, 1 );
+
+    // Our own custom hooks
+    add_action( 'atn_post_comment',      'wpv_edit_comment_action', 99, 1 );
+    add_action( 'atn_update_comment',      'wpv_edit_comment_action', 99, 1 );
+    add_action( 'atn_moderate_comment',      'wpv_edit_comment_action', 99, 1 );
+
 
     // hold all URLs in a global and purge on shutdown - this is designed to avoid duplicate purges.
     // yes, I know globals are nasty, but this is Wordpress we're dealing with here.
